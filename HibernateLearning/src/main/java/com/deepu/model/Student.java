@@ -19,12 +19,6 @@ public class Student
 	@Column(name="SCITY")
 	private String sCity;
 	
-	public Student(Integer sId, String sName, String sCity) {
-		super();
-		this.sId = sId;
-		this.sName = sName;
-		this.sCity = sCity;
-	}
 
 	public Student(){
 		System.out.println("Student class constructor");
