@@ -1,18 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-<hibernate-configuration>
-	<session-factory>
-		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/deepu_db</property>
-		<property name="hibernate.connection.password">deepu@123</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="hibernate.hbm2ddl.auto">update</property>
-<!-- 		<property name="hibernate.hbm2ddl.auto">create</property> -->
-		<property name="hibernate.show_sql">true</property>
-		<property name="hibernate.format_sql">true</property>
 
-	</session-factory>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- MySQL JDBC driver: allows Java/Hibernate to communicate with MySQL -->
+        <property name="hibernate.connection.driver_class">
+            com.mysql.cj.jdbc.Driver
+        </property>
+
+        <!-- Database URL: tells Hibernate where the database is located -->
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/deepu_db
+        </property>
+
+        <!-- Database username -->
+        <property name="hibernate.connection.username">
+            root
+        </property>
+
+        <!-- Database password -->
+        <property name="hibernate.connection.password">
+            deepu@123
+        </property>
+
+        <!-- Tells Hibernate to generate SQL according to MySQL rules -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <!-- Automatically updates the database table structure when entity classes change -->
+        <property name="hibernate.hbm2ddl.auto">
+            update
+        </property>
+
+        <!--
+        Other possible options:
+        create  -> drops existing tables and creates new ones
+        update  -> updates existing tables without deleting data
+        create-drop -> creates tables at startup and drops them when the application stops
+        validate -> only checks whether tables match entity classes
+        -->
+
+        <!-- Prints generated SQL queries in the console -->
+        <property name="hibernate.show_sql">
+            true
+        </property>
+
+        <!-- Makes generated SQL easier to read -->
+        <property name="hibernate.format_sql">
+            true
+        </property>
+
+
+        <!-- ==================== 2nd LEVEL CACHE ==================== -->
+
+        <!-- Enables Hibernate's second-level cache -->
+        <property name="hibernate.cache.use_second_level_cache">
+            true
+        </property>
+
+        <!-- Tells Hibernate to use JCache for the second-level cache -->
+        <property name="hibernate.cache.region.factory_class">
+            org.hibernate.cache.jcache.internal.JCacheRegionFactory
+        </property>
+
+       
+
+    </session-factory>
+
 </hibernate-configuration>

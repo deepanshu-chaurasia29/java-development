@@ -68,11 +68,24 @@ public class HibernateQueries {
 			// }
 			
 			// L1 caching
+//			Student std1=session1.get(Student.class, 1);
+//			System.out.println(std1);
+//			Student std2=session1.get(Student.class, 1);
+//			System.out.println(std2);
+//			
+//			Student std3=session2.get(Student.class, 1);
+//			System.out.println(std3);
+//			Student std4=session2.get(Student.class, 1);
+//			System.out.println(std4);
+			
+			// L2 caching -> Not available in hibernate.for this, use 3rd party implementation, i.e, ehcache. 
+			
 			Student std1=session1.get(Student.class, 1);
 			System.out.println(std1);
-			Student std2=session1.get(Student.class, 1);
+			Student std2=session1.get(Student.class, 2);
 			System.out.println(std2);
-			Student std3=session2.get(Student.class, 1);
+			
+			Student std3=session2.get(Student.class, 2);
 			System.out.println(std3);
 			Student std4=session2.get(Student.class, 1);
 			System.out.println(std4);
