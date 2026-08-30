@@ -31,10 +31,10 @@ public class HibernateQueries {
 //			 st.setsId(1);
 //			 st.setsName("Harsh");
 //			 st.setsCity("Jaipur"); 
+			
 
 			// session.save(st); // to save the current object ,but its is deprecated
 			// session.persist(st); // better method to save
-			// session.save(st); // deprecated method
 			// session.merge(st); // to store the current session object
 			// session.saveOrUpdate(st); // deprecated method
 			// session.delete(st); // this will delete the current student data
@@ -47,16 +47,16 @@ public class HibernateQueries {
 //			session.persist(emp);
 //			session.persist(st);
 
-			// Student std2 = session.get(Student.class, 44); // get() method eagerly load the data -> for eagrly loading
+//			 Student std2 = session.get(Student.class, 4); // get() method eagerly load the data -> for eagrly loading
 															// first it will retrieve object from data base
 			// Student std2=session.load(Student.class, 1);  // load method is deprecated
-			// Student std2=session.getReference(Student.class, 33);  // getReference() method
-			// lazy load the data -> no actual object was created until use case
+			// Student std2=session.getReference(Student.class, 33);  
+			// getReference() -> lazy load the data -> no actual object was created until use case
 
 			// if (std2 != null) {
 				// System.out.println("Id is " + std2.getsId()); // this will be printed via proxy object but when I want
 																// to print std2 name or city, Hibernate will create new
-																// Object (bckz prosy object only have ID, it does not
+																// Object (bckz proxy object only have ID, it does not
 																// have info about other columns) which will be actual
 																// object and from there, it will print name and city.
 																// That's why constructor is called 2 times
@@ -72,20 +72,24 @@ public class HibernateQueries {
 //			System.out.println(std1);
 //			Student std2=session1.get(Student.class, 1);
 //			System.out.println(std2);
-//			
-//			Student std3=session2.get(Student.class, 1);
+//			Student std3=session1.get(Student.class, 2);
 //			System.out.println(std3);
-//			Student std4=session2.get(Student.class, 1);
+//			Student std4=session1.get(Student.class, 2);
 //			System.out.println(std4);
+//			
+//			Student std5=session2.get(Student.class, 1);
+//			System.out.println(std5);
+//			Student std6=session2.get(Student.class, 1);
+//			System.out.println(std6);
 			
 			// L2 caching -> Not available in hibernate.for this, use 3rd party implementation, i.e, ehcache. 
 			
 			Student std1=session1.get(Student.class, 1);
 			System.out.println(std1);
-			Student std2=session1.get(Student.class, 2);
+			Student std2=session1.get(Student.class, 1);
 			System.out.println(std2);
 			
-			Student std3=session2.get(Student.class, 2);
+			Student std3=session2.get(Student.class, 1);
 			System.out.println(std3);
 			Student std4=session2.get(Student.class, 1);
 			System.out.println(std4);

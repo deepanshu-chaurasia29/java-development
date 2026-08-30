@@ -14,7 +14,7 @@ public class FirstAppl
 		Configuration config=new Configuration();
 		
 		// step 2- configure hibernate.cfg.xml file to configuration object
-		config.configure();  // if owr sml file name was different then i must mention that into configure section
+		config.configure();  // if owr xml file name was different then i must mention that into configure section
 		
 		// Step 3 - create sessionFactory Object
 		SessionFactory sessionFactory=config.buildSessionFactory();
