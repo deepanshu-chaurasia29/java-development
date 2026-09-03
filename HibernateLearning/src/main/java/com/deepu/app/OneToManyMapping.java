@@ -49,7 +49,7 @@ public class OneToManyMapping {
 		
 		for(AnswerTable answers:question.getAnswerList()) {
 			System.out.println(answers.getAnswer());
-		}
+		} 
 		
 		try {
 
