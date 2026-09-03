@@ -10,7 +10,7 @@ import com.deepu.model.Answer;
 import com.deepu.model.Question;
 import com.deepu.model.Student;
 
-public class HibernateAssociationMapping {
+public class OneToOneMapping {
 
 	public static void main(String[] args) {
 		Configuration config = null;
