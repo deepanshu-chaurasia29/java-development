@@ -21,7 +21,7 @@ public class QuestionTable {
 	private List<AnswerTable> answerList;
 
 	public QuestionTable() {
-		System.out.println("zero param constructor of Question");
+		System.out.println("zero  param constructor of Question");
 	}
 
 	public Integer getId() {
