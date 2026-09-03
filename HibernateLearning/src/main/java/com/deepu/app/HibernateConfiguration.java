@@ -19,6 +19,7 @@ public class HibernateConfiguration {
 		boolean flag = false;
 		config = new Configuration();
 
+	
 		// we are configuring through java code right now and removed config.configure() method
 		// its not a good way
 //		config.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
@@ -34,8 +35,11 @@ public class HibernateConfiguration {
 //				"org.hibernate.cache.jcache.internal.JCacheRegionFactory");
 
 
+		config.configure();
 		session1 = config.addAnnotatedClass(Student.class).buildSessionFactory().openSession();
-		Student std1 = new Student(5, "Ram", "UP");
+		Student std1 = new Student("Aman","Bihar");
+//		std1.setsCity("Delhi");
+//		std1.setsName("Aaryan");
 
 		try {
 

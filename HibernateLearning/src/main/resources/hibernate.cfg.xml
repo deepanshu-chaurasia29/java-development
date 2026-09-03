@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- MySQL JDBC driver -->
+		<property name="hibernate.connection.driver_class">
+			com.mysql.cj.jdbc.Driver
+		</property>
+
+		<!-- Database URL -->
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost:3306/deepu_db
+		</property>
+
+		<!-- Database username -->
+		<property name="hibernate.connection.username">
+			root
+		</property>
+
+		<!-- Database password -->
+		<property name="hibernate.connection.password">
+			deepu@123
+		</property>
+
+		<!-- MySQL dialect -->
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+
+		<!-- Automatically update database tables -->
+		<property name="hibernate.hbm2ddl.auto">
+			create
+		</property>
+
+		<!-- Other options: create -> drops existing tables and creates new ones 
+			update -> updates existing tables without deleting data create-drop -> creates 
+			at startup and drops at shutdown validate -> only validates the schema -->
+
+		<!-- Show generated SQL -->
+		<property name="hibernate.show_sql">
+			true
+		</property>
+
+		<!-- Format generated SQL -->
+		<property name="hibernate.format_sql">
+			true
+		</property>
+		
+
+		<!-- ==================== 2nd LEVEL CACHE ==================== -->
+
+		<!-- Enable second-level cache -->
+		<property name="hibernate.cache.use_second_level_cache">
+			true
+		</property>
+
+		<!-- Use JCache as the cache region factory -->
+		<property name="hibernate.cache.region.factory_class">
+			org.hibernate.cache.jcache.internal.JCacheRegionFactory
+		</property>
+
+	</session-factory>
+
+</hibernate-configuration>

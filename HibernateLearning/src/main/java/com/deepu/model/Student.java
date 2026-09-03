@@ -6,7 +6,10 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import jakarta.persistence.Cacheable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 
@@ -17,6 +20,8 @@ import jakarta.persistence.Table;
 public class Student 
 {
 	@Id
+	@GeneratedValue(generator="my_seq",strategy=GenerationType.IDENTITY)  // it auto increment id
+	@SequenceGenerator(name="my_seq",sequenceName="my_own_sequence",initialValue=100,allocationSize=1)  // id starting value will be 100 becasue i gave it sequence
 	@Column(name="SID")
 	private Integer sId;
 	
@@ -27,9 +32,8 @@ public class Student
 	private String sCity;
 	
 
-	public Student(Integer sId, String sName, String sCity) {
+	public Student(String sName, String sCity) {
 		super();
-		this.sId = sId;
 		this.sName = sName;
 		this.sCity = sCity;
 	}
