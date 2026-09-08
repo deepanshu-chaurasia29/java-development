@@ -3,6 +3,7 @@ package com.deepu.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
 @Entity
@@ -11,18 +12,15 @@ public class Employee
 	@Id
 	private Integer eId;
 	private String eName;
+	
 	@Transient  // eCity column will not be created due to this annotation
 	private String eCity;
 	
 	
-	
-	
-	public Employee(Integer eId, String eName, String eCity) {
-		super();
-		this.eId = eId;
-		this.eName = eName;
-		this.eCity = eCity;
+	public Employee() {
+		
 	}
+	
 	public Integer geteId() {
 		return eId;
 	}
